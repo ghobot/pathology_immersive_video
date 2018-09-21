@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>360 Video</title>
+  <meta name="description" content="Virtual Pathology: Screening Colonoscopy" />
+  <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui" />
+  <style>@-ms-viewport { width: device-width; }</style>
+
+  <link rel="stylesheet" href="app-files/vendor/reset.min.css">
+  <link rel="stylesheet" href="app-files/css/style.css">
+  <link rel="stylesheet" href="app-files/css/video.css">
+  <link rel="stylesheet" href="app-files/css/hotspot.css">
+
+</head>
+<body>
+
+<script>var CARDBOARD_DEBUG = true;</script>
+<main>
+<div id="pano"></div>
+
+<!-- vr controls -->
+<div id="no-vr" class="vr-button" style="display: none">No VR device detected</div>
+<div id="enter-vr" class="vr-button" style="display: none">Enter VR mode</div>
+<!-- welcome modal -->
+<div id="welcome-modal" class="modal-hotspot-modal welcome visible"><div class="info-hotspot-header"><div class="info-hotspot-icon-wrapper"></div>
+<div class="info-hotspot-title-wrapper"><div class="info-hotspot-title"></div></div>
+<div class="info-hotspot-close-wrapper">
+  <img src="app-files/img/close.png" class="info-hotspot-close-icon">
+</div>
+</div>
+<div class="info-hotspot-text">
+  <h1>Pathology Title</h1>
+  <p>This is an immersive video that you can move around to see different angles by clicking or toucing the screen. </p>
+  <p>At the end of this immersive video, you should be able to:</p>
+  <ul>
+    <li>Objective 1</li>
+    <li>Objective 2</li>
+    <li>Objective 3</li>
+    <li>Objective 4</li>
+  </ul>
+  <div id="playBtn">
+    <button>
+      PLAY
+    </button>
+  </div>
+
+  </div>
+ </div>
+
+<!-- modal window       -->
+<div id="modal" class="hidden">
+  <div id="close" class="">
+    <div class="info-hotspot-close-wrapper">
+        <img src="app-files/img/close.png" class="info-hotspot-close-icon">
+    </div>
+  </div>
+  <div class="title">
+    <h3></h3>
+  </div>
+  <div class="image">
+  <img src="" alt="">
+  </div>
+  <div class="info">
+  <p></p>
+  </div>
+  <div id="closeBtn">
+    <button>
+      close
+    </button>
+  </div>
+</div>
+</main>
+<!-- video controls -->
+<style>
+  .control-btn.speed {
+    width: 40px;
+    left: 40px;
+  }
+  .speed h4{
+    text-align: center;
+    vertical-align: middle;
+    display: block;
+    margin-top: 11px;
+  }
+
+</style>
+<footer>
+  <div class="video-controls" id="video-controls">
+  <div class="control-btn play" id="play-pause">
+    <img class="play-icon" src="app-files/img/play.png">
+    <img class="pause-icon" src="app-files/img/pause.png">
+  </div>
+  <div class="control-btn sound hidden" id="mute">
+    <img class="sound-on" src="app-files/img/sound-on.png">
+    <img class="sound-off" src="app-files/img/sound-off.png">
+  </div>
+  <div class="control-btn speed" id="speed-controls">
+      <h4 class="speed-indicator">1x</h4>
+  </div>
+  <div class="time">
+    <h5 class="initial-time" id="current-time-indicator"></h5>
+    <div class="progress-wrapper" id="progress-background">
+      <div class="progress-bar">
+        <span class="progress-fill" id="progress-fill"></span>
+      </div>
+    </div>
+    <h5 class="end-time" id="duration-indicator"></h5>
+  </div>
+  <div class="control-btn resolution selected" id="toggle-resolution-select">
+    <h4 id="resolution-indicator"></h4>
+    <img class="resolution-icon" src="app-files/img/resolution.png">
+    <div class="resolution-changing-indicator">Changing...</div>
+  </div>
+  <div class="control-btn options" id="toggle-options">
+    <img class="options icon" src="app-files/img/options.png">
+  </div>
+</div>
+
+<div class="resolution-modal">
+  <ul id="resolution-select"></ul>
+  <div class="resolution-modal-changing-indicator">
+    <div class="spinner">Changing...</div>
+  </div>
+  </div>
+
+<div class="options-modal remove">
+  <label>Effect:
+  <select id="effect">
+    <option value="none">None</option>
+    <option value="desaturate">Desaturate</option>
+    <option value="saturate">Saturate</option>
+    <option value="lighten">Lighten</option>
+    <option value="darken">Darken</option>
+    <option value="sepia">Sepia</option>
+  </select>
+  </label>
+</div>
+</footer>
+
+<script src="app-files/vendor/es5-shim.js"></script>
+<script src="app-files/vendor/eventShim.js"></script>
+<script src="app-files/vendor/requestAnimationFrame.js" ></script>
+<script src="app-files/vendor/screenfull.min.js" ></script>
+<script src="app-files/vendor/classList.js"></script>
+<script src="app-files/vendor/bowser.min.js" ></script>
+<!-- webVR scripts -->
+<!-- <script src="js/three.js"></script>
+<script src="js/webvr-polyfill.js"></script>
+<script src="js/es6-promise.js"></script>   -->
+<script src="app-files/vendor/marzipano.js" ></script>
+
+
+<script src="app-files/vendor/CanvasHackVideoElementWrapper.js"></script>
+<script src="app-files/vendor/VideoAsset.js"></script>
+<script src="app-files/vendor/EventEmitter.js"></script>
+<script src="app-files/vendor/EventEmitterProxy.js"></script>
+<script src="app-files/vendor/NullVideoElementWrapper.js"></script>
+<script src="app-files/vendor/CanvasHackVideoElementWrapper.js"></script>
+<script src="app-files/vendor/loadVideoInSync.js"></script>
+<script src="app-files/js/multiResVideo.js"></script>
+<script src="app-files/vendor/colorEffects.js"></script>
+<script src="app-files/vendor/interface.js"></script>
+<script src="app-files/vendor/init.js"></script>
+
+<script src="app-files/js/wakelock.js"></script>
+<script src="app-files/js/popcorn.js" ></script>
+<script src="app-files/js/popcorn.code.js" ></script>
+
+<script src="app-files/js/data.js"></script>
+<script src="app-files/js/markers.js"></script>
+
+<script>
+(function() {
+
+})();
+  </script>
+</body>
+</html>

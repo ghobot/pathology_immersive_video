@@ -20,18 +20,37 @@
 
 
 
-var pop, videoLength;
+var popVideo;
+var videoLength;
 var marker_data = window.json;
 var bonus_material = window.bonusMaterial;
 
 emitter.addEventListener('change', function() {
        // console.log('change', asset.video() && asset.video().videoElement());
-        pop = Popcorn(multiResVideo.element());
-        videoLength = pop.duration();
+        popVideo = Popcorn(multiResVideo.element());
+        videoLength = popVideo.duration();
 
         createMarkers();
 
 });
+
+// Detect desktop or mobile mode.
+  if (window.matchMedia) {
+    var setMode = function() {
+      if (mql.matches) {
+        document.body.classList.remove('desktop');
+        document.body.classList.add('mobile');
+      } else {
+        document.body.classList.remove('mobile');
+        document.body.classList.add('desktop');
+      }
+    };
+    var mql = matchMedia("(max-width: 500px), (max-height: 500px)");
+    setMode();
+    mql.addListener(setMode);
+  } else {
+    document.body.classList.add('desktop');
+  }
 
 //iterate through and create objects from json from each hotspot, create new hotspot container per hotspot types
 function createMarkers() {
@@ -173,11 +192,12 @@ function popTextInfo(timeIn, timeOut, id) {
   var hotspot = document.querySelector("#"+id);
 
   hotspot.addEventListener("click", function() {
-    pop.pause();
+    //console.log("hotspot clicked");
+    popVideo.pause();
 
   });
 
-  pop.code({
+  popVideo.code({
       start: timeIn,
       end: timeOut,
       onStart: function( options ) {
@@ -198,11 +218,11 @@ function popTooltip (timeIn, timeOut, id) {
     var hotspot = document.querySelector("#"+id);
 
     hotspot.addEventListener("click", function() {
-      pop.pause();
+      popVideo.pause();
 
     });
 
-  pop.code({
+  popVideo.code({
       start: timeIn,
       end: timeOut,
       onStart: function( options ) {
@@ -255,7 +275,7 @@ function addInfoToImageModal(id) { //find corresponding image, details etc with 
         //console.log("no match.");
 
       }
-}
+    }
 }
 
     (function() {
@@ -281,17 +301,13 @@ function addInfoToImageModal(id) { //find corresponding image, details etc with 
         var hideWelcome = function() {
 
           welcomeModal.classList.remove('visible');
-          pop.play();
+          popVideo.play();
         };
 
         // Hide welcome content modal when close icon is clicked. and play video
         document.querySelector('.welcome .info-hotspot-close-wrapper').addEventListener('click', hideWelcome);
         multiResVideo.addEventListenerVideo('play', hideWelcome);
         document.getElementById('playBtn').addEventListener('click', hideWelcome);
-
-
-
-
 
     })();
 

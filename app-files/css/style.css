@@ -830,9 +830,12 @@ body.view-control-buttons .viewControlButton {
 }
 
 #welcome-modal {
-    height: 75%;
+    height: 80%;
     overflow: auto;
+}
 
+#welcome-modal ul li {
+    padding: 0 0 10px 0;
 }
 
 .modal-hotspot-modal.visible {

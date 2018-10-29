@@ -241,7 +241,7 @@ function popTooltip (timeIn, timeOut, id) {
 
 function addInfoToImageModal(id) { //find corresponding image, details etc with id
 
-  var hotSpotid, hotspotType, hotspotClass, infoTitle, infoDesc, infoImageUrl, infoImageAlt, infoUrlAction, infoUrlText, infoEmbed;
+  var hotSpotid, hotspotType, hotspotClass, infoTitle, infoDesc, infoImages,  infoUrlAction, infoEmbed;
 
 
   for (var i = 0; i <bonusMaterial.info.length; i++) {
@@ -252,31 +252,49 @@ function addInfoToImageModal(id) { //find corresponding image, details etc with 
         hotspotClass = bonusMaterial.info[i].class;
         infoTitle =  bonusMaterial.info[i].title;
         infoDesc= bonusMaterial.info[i].description;
-        infoImageUrl = bonusMaterial.info[i].imageUrl;
-        infoImageAlt =  bonusMaterial.info[i].imageAlt;
+        infoImages = bonusMaterial.info[i].images;
+        //infoImageAlt =  bonusMaterial.info[i].imageAlt;
         infoUrlAction =  bonusMaterial.info[i].urlCallToAction;
-        infoUrlText =  bonusMaterial.info[i].urlText;
+        //infoUrlText =  bonusMaterial.info[i].urlText;
         infoEmbed = bonusMaterial.info[i].embed;
 
          //format and add data to modal
-  var modalTitle = document.querySelector("#modal .title h3");
-  var modalDesc = document.querySelector("#modal .info p");
-  var modalImage = document.querySelector("#modal .image img");
+        var modalTitle = document.querySelector("#modal .title h3");
+        var modalDesc = document.querySelector("#modal .info p");
+        var modalImageEl = document.querySelector("#modal .image");
 
-  modalTitle.innerHTML = infoTitle;
-  modalDesc.innerHTML = infoDesc;
+        modalTitle.innerHTML = infoTitle;
+        modalDesc.innerHTML = infoDesc;
+        var figureEl = document.createElement('figure');
 
-  modalImage.src = infoImageUrl;
-  modalImage.alt = infoImageAlt;
+        infoImages.forEach ( function (image) {
+          var imageSrc = image.imageURL;
+          var imageAlt = image.alt;
+          var imageText = image.text;
+          var imageTextEl = document.createElement('p');
+          var imageNum = infoImages.indexOf(image) + 1;
+          var totalImages = infoImages.length;
 
-       break
+          if (imageText) {
+            imageTextEl.innerHTML = image.text + " (" + imageNum + " of " + totalImages + ") " ;
+          } else {
+            imageTextEl.innerHTML = " (" + imageNum + " of " + totalImages + ") " ;
+          }
 
-      } else {
-        //console.log("no match.");
+          var imageEl = document.createElement('img');
+          imageEl.src = imageSrc;
+          imageEl.alt= imageAlt;
+          figureEl.appendChild(imageTextEl);
+          figureEl.appendChild(imageEl);
+
+        });
+        modalImageEl.innerHTML="";
+        modalImageEl.appendChild(figureEl);
 
       }
     }
-}
+  }
+
 
     (function() {
         //close button on info panel modal

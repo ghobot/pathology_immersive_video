@@ -229,8 +229,15 @@ var bonusMaterial = {
       "class": "textInfo",
       "title": "Anatomy of the ICV",
       "description": "This Netter illustration highlights the region of the ileocecal valve (ICV), which is located in the right lower quadrant of the abdomen. Note the labeled (terminal) ileum, ileal orifice (location of the ICV), cecum, and appendix, and their corresponding gross appearance in the surgical specimen.",
-      "imageUrl": "app-files/img/more/icv.png",
-      "imageAlt": "icv",
+      "images" : [
+          {
+            "imageURL":"app-files/img/more/icv.png",
+            "imageAlt":"icv",
+            "text" : ""
+          }
+        ],
+      // "imageUrl": "app-files/img/more/icv.png",
+      // "imageAlt": "icv",
       "urlCallToAction": "",
       "urlText": callToAction,
       "embed":""
@@ -241,8 +248,15 @@ var bonusMaterial = {
       "class": "textInfo",
       "title": "Histologic layers of the colon",
       "description": "Note in this histological photomicrograph - progressing from the luminal surface to external serosal surface - the mucosa (Muc), submucosa (SubM), and two layers of the muscularis propria (ME).",
-      "imageUrl": "app-files/img/more/colon_layers.png",
-      "imageAlt": "colon layers",
+      "images" : [
+          {
+            "imageURL":"app-files/img/more/colon_layers.png",
+            "imageAlt":"colon layers",
+            "text" : ""
+          }
+        ],
+      // "imageUrl": "app-files/img/more/colon_layers.png",
+      // "imageAlt": "colon layers",
       "urlCallToAction": "http://nyulangone.org",
       "urlText": callToAction,
       "embed":""
@@ -253,8 +267,15 @@ var bonusMaterial = {
       "class": "textInfo",
       "title": "The staging of colorectal carcinoma - the T stages",
       "description": "Dr. Suarez cut into the polyp to examine whether there was any gross evidence of a tumor invading into the wall of the colon.  The 'T' stages of the TNM staging classification system, illustrated in this cartoon, describes local invasion.  As Dr. Suarez says, in this case, if there is evidence of carcinoma on histological examination, it likely would be Tis (in situ within the mucosa), or possibly T1. ",
-      "imageUrl": "app-files/img/more/staging_colorectal_tstages.png",
-      "imageAlt": "icv",
+      "images" : [
+          {
+            "imageURL":"app-files/img/more/staging_colorectal_tstages.png",
+            "imageAlt":"icv",
+            "text" : ""
+          }
+        ],
+      // "imageUrl": "app-files/img/more/staging_colorectal_tstages.png",
+      // "imageAlt": "icv",
       "urlCallToAction": "http://nyulangone.org",
       "urlText": callToAction,
       "embed":""
@@ -265,8 +286,15 @@ var bonusMaterial = {
       "class": "textInfo",
       "title": "The staging of colorectal carcinoma - the N & M stages",
       "description": "This chart shows the 'N' (regional lymph Node) and 'M' (distant Metastasis) stages of the TNM staging classification system. The pathologist looks at histological sections of lymph nodes in the specimen (or submitted separately by the surgeon) to determine the number that contain metastatic carcinoma.  The M evaluation is usually done clinically with the aid of radiological imaging. (Occasionally, the surgeon will submit, for example, a wedge biopsy of a suspicious lesion in the liver, for pathological evaluation of metastasis). ",
-      "imageUrl": "app-files/img/more/staging_colorectal_nmstages.png",
-      "imageAlt": "icv",
+      "images" : [
+          {
+            "imageURL":"app-files/img/more/staging_colorectal_nmstages.png",
+            "imageAlt":"ICV",
+            "text" : ""
+          }
+        ],
+      // "imageUrl": "app-files/img/more/staging_colorectal_nmstages.png",
+      // "imageAlt": "icv",
       "urlCallToAction": "",
       "urlText": callToAction,
       "embed":""
@@ -277,8 +305,9 @@ var bonusMaterial = {
       "class": "textInfo",
       "title": "Microscopic images",
       "description": "More information",
-      "imageUrl": "app-files/img/more/",
-      "imageAlt": "microscopic images",
+      "images" : [],
+      // "imageUrl": "app-files/img/more/",
+      // "imageAlt": "microscopic images",
       "urlCallToAction": "",
       "urlText": callToAction,
       "embed":""
@@ -289,8 +318,20 @@ var bonusMaterial = {
       "class": "textInfo",
       "title": "Grades of Dysplasia",
       "description": "Compare in this composite slide, the normal colonic mucosa, increasing levels of dysplasia (low í high), and frankly malignant invasive carcinoma. The histological features distinguishing the different grades of dysplasia are listed.",
-      "imageUrl": "app-files/img/more/grades_dysplasia.jpg",
-      "imageAlt": "grades of dysplasia",
+      "images" : [
+          {
+            "imageURL":"app-files/img/more/grades_of_dysplasia_01.jpg",
+            "imageAlt":"grades of dysplasia 1",
+            "text" : ""
+          },
+          {
+            "imageURL":"app-files/img/more/grades_of_dysplasia_02.jpg",
+            "imageAlt":"grades of dysplasia 2",
+            "text" : ""
+          }
+        ],
+      // "imageUrl": "app-files/img/more/grades_dysplasia.jpg",
+      // "imageAlt": "grades of dysplasia",
       "urlCallToAction": "",
       "urlText": callToAction,
       "embed":""
@@ -301,8 +342,15 @@ var bonusMaterial = {
       "class": "textInfo",
       "title": "Colorectal Carcinoma Staging",
       "description": "This is a more comprehensive list of staging criteria for colorectal carcinoma.  The TNM features are above, and the (simplified) composite Final Stage (0 - IV) is listed at the bottom.  The stage of a colorectal carcinoma - much of which is determined by pathological evaluation - is the most important determinant of management and prognosis.",
-      "imageUrl": "app-files/img/more/colorectal_carcinoma_staging.png",
-      "imageAlt": "charts",
+      "images" : [
+          {
+            "imageURL":"app-files/img/more/colorectal_carcinoma_staging.png",
+            "imageAlt":"charts",
+            "text" : ""
+          }
+        ],
+      // "imageUrl": "app-files/img/more/colorectal_carcinoma_staging.png",
+      // "imageAlt": "charts",
       "urlCallToAction": "",
       "urlText": callToAction,
       "embed":""

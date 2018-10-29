@@ -985,3 +985,11 @@ body.view-control-buttons .viewControlButton {
     background-color: rgb(78,88,104);
     cursor: pointer;
 }
+
+#modal figure p {
+  margin: 0px 20px;
+
+  padding: 10px;
+
+  font-size: 1rem;
+}
